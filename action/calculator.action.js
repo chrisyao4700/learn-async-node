@@ -37,6 +37,39 @@ class CalculatorAction {
         }
     }
 
+    static calChickenBunny(heads_input, legs_input) {
+        try {
+
+            const heads = Number(heads_input);
+            const legs = Number(legs_input);
+
+            let bunny = (legs - (heads * 2)) / 2;
+            let chicken = heads - bunny;
+
+            return {bunny, chicken, heads, legs};
+
+        } catch (e) {
+            throw e;
+        }
+    }
+
+
+    static createChickenBunny(chicken_count, bunny_count) {
+        try {
+            const chicken = Number(chicken_count);
+            const bunny = Number(bunny_count);
+
+            const heads = chicken + bunny;
+            const legs = (chicken * 2) + (bunny * 4);
+
+
+            return {chicken, bunny, heads, legs};
+
+        } catch (e) {
+            throw e;
+        }
+    }
+
 }
 
 module.exports = CalculatorAction;

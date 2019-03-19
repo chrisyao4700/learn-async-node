@@ -77,6 +77,7 @@ router.post('/cal/async', async (req, res, next) => {
         //         operator, first_num, second_num, result
         //     }
         // });
+
     } catch (e) {
         next(e);
     }
@@ -104,6 +105,37 @@ router.post('/multiply', async (req, res, next) => {
         res.json(resBody);
     } catch (e) {
 
+        next(e);
+    }
+});
+
+router.post('/chickenbunny', async (req, res, next) => {
+    try {
+        const {heads, legs} = req.body;
+
+        const result = await CalculatorAction.calChickenBunny(heads, legs);
+        const resBody = func.configSuccess(
+            result
+        );
+
+        res.json(resBody);
+    } catch (e) {
+        next(e);
+    }
+});
+
+
+router.post('/create/chickenbunny', async (req, res, next) => {
+    try {
+        const {chicken, bunny} = req.body;
+
+        const result = await CalculatorAction.createChickenBunny(chicken, bunny);
+
+        const resBody = func.configSuccess(
+            result
+        );
+        res.json(resBody);
+    } catch (e) {
         next(e);
     }
 });
